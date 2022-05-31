@@ -30,8 +30,7 @@ Lets discussion the encoding and decoding for _**player 'O'**_ and _**board stat
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O _ _ <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X O _ <br>
 _**Encoding :**_ 
-I have consider 'X' : 1, 'O' : 2 and '_' : 0. We can represent the **board** as **101200120** and, now I'll convert this in terms of ternary number.
-<br>
+I have consider 'X' : 1, 'O' : 2 and '_' : 0. We can represent the **board** as **101200120** and, now I'll convert this in terms of ternary number.<br>
 number = 1 \* 3<sup>0</sup> + 0 \* 3<sup>1</sup> + 1 \* 3<sup>2</sup> + 2 \* 3<sup>3</sup> + 0 \* 3<sup>4</sup> + 0 \* 3<sup>5</sup> + 1 \* 3<sup>6</sup> + 2 \* 3<sup>7</sup> + 0 \* 3<sup>8</sup> <br>
 Since, I have to also encode the player with board, one more bit is required, i.e., 101200120<u>**2**</u> (as 'O' is the player). <br>
 Therefore, number = number + 2 \* 3<sup>9</sup> = 44533 <br>
