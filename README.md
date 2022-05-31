@@ -32,21 +32,22 @@ Lets discuss the encoding and decoding for _**player 'O'**_ and _**board state**
 _**Encoding :**_ 
 I have consider 'X' : 1, 'O' : 2 and '_' : 0. We can represent the **board** as **101200120** and, now I'll convert this in terms of ternary number.<br>
 number = 1 \* 3<sup>0</sup> + 0 \* 3<sup>1</sup> + 1 \* 3<sup>2</sup> + 2 \* 3<sup>3</sup> + 0 \* 3<sup>4</sup> + 0 \* 3<sup>5</sup> + 1 \* 3<sup>6</sup> + 2 \* 3<sup>7</sup> + 0 \* 3<sup>8</sup> <br>
-Since, I have to also encode the player with board, one more bit is required, i.e., 101200120<u>**2**</u> (as 'O' is the player). <br>
+Since, I have to also encode the player with board, one more bit is required, i.e., **_2_**  101200120 (2 as 'O' is the player). <br>
 Therefore, number = number + 2 \* 3<sup>9</sup> = 44533 <br>
 _**Decoding :**_
 For decoding I'll take the number % 3 for the bit value, then divide the number by 3 to get quotient and repeated the this process 9 times. In the end I'll again take number % 3 to get the player info.<br>
 number = 44533 <br>
-44533 % 3 = 1 , [44533 / 3] = 14844 &nbsp;&nbsp;&nbsp;&nbsp;|<br>
-14844 % 3 = 0 , [14844 / 3] = 4948 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   <br>
-4948 % 3 = 1 , [4948 / 3] = 1649 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-1649 % 3 = 2 , [1649 / 3] = 549 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-549 % 3 = 0 , [549 / 3] = 183 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|============> **Board : 101200120** <br>
-183 % 3 = 0 , [183 / 3] = 61 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-61 % 3 = 1 , [61 / 3] = 20 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-20 % 3 = 2 , [20 / 3] = 6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-6 % 3 = 0 , [6 / 3] = 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-2 % 3 = 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;============> **Player : 'O'** <br><br>
+44533 % 3 = **1** , [44533 / 3] = 14844 <br>
+14844 % 3 = **0** , [14844 / 3] = 4948 <br>
+4948 % 3 = **1** , [4948 / 3] = 1649 <br>
+1649 % 3 = **2** , [1649 / 3] = 549 <br>
+549 % 3 = **0** , [549 / 3] = 183 <br>
+183 % 3 = **0** , [183 / 3] = 61 <br>
+61 % 3 = **1** , [61 / 3] = 20 <br>
+20 % 3 = **2** , [20 / 3] = 6 <br>
+6 % 3 = **0** , [6 / 3] = 2 <br>
+2 % 3 = **2** <br>
+**Board : 101200120** and **Player : 'O'** <br>
 
 ## __RESULTS__
 ---
