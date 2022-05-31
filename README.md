@@ -30,10 +30,10 @@ Lets discuss the encoding and decoding for _**player 'O'**_ and _**board state**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O _ _ <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X O _ <br>
 _**Encoding :**_ 
-I have consider 'X' : 1, 'O' : 2 and '_' : 0. We can represent the **board** as **101200120** and, now I'll convert this in terms of ternary number.<br>
-number = 1 \* 3<sup>0</sup> + 0 \* 3<sup>1</sup> + 1 \* 3<sup>2</sup> + 2 \* 3<sup>3</sup> + 0 \* 3<sup>4</sup> + 0 \* 3<sup>5</sup> + 1 \* 3<sup>6</sup> + 2 \* 3<sup>7</sup> + 0 \* 3<sup>8</sup> <br>
-Since, I have to also encode the player with board, one more bit is required, i.e., **_2_**  101200120 (2 as 'O' is the player). <br>
-Therefore, number = number + 2 \* 3<sup>9</sup> = 44533 <br>
+I have consider 'X' : 1, 'O' : 2 and '_' : 0. We can represent the **board** as **(101200120)<sub>3</sub>** and, now I'll convert this in terms of ternary number.<br>
+number = 1 \* 3<sup>0</sup> + 0 \* 3<sup>1</sup> + 1 \* 3<sup>2</sup> + 2 \* 3<sup>3</sup> + 0 \* 3<sup>4</sup> + 0 \* 3<sup>5</sup> + 1 \* 3<sup>6</sup> + 2 \* 3<sup>7</sup> + 0 \* 3<sup>8</sup> = 5167<br>
+Since, I have to also encode the player with board, one more bit is required, i.e., (**_2_** 101200120)<sub>3</sub> (2 as 'O' is the player). <br>
+Therefore, number = 5167 + 2 \* 3<sup>9</sup> = 44533 <br>
 _**Decoding :**_
 For decoding I'll take the number % 3 for the bit value, then divide the number by 3 to get quotient and repeated the this process 9 times. In the end I'll again take number % 3 to get the player info.<br>
 number = 44533 <br>
@@ -47,7 +47,7 @@ number = 44533 <br>
 20 % 3 = **2** , [20 / 3] = 6 <br>
 6 % 3 = **0** , [6 / 3] = 2 <br>
 2 % 3 = **2** <br>
-**Board : 101200120** and **Player : 'O'** <br>
+**Board : (101200120)<sub>3</sub>** and **Player : 'O'** <br>
 
 ## __RESULTS__
 ---
